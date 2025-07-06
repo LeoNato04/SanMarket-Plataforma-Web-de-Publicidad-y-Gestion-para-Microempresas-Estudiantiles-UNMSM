@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Market - Iniciar sesión y registrarse</title>
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <style>
+        /* Estilos para el menú desplegable */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            padding: .25rem 0rem;
+            background-color: #ffffff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-item {
+            color: #333;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa; 
+            color: none;
+        }
+ 
+        /* Estilos Pie de pagina, siempre en la parte inferior */
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Iconos: Redes Sociales -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                        class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                        class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                        class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                        class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Encabezado: barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            San Market
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+            id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Acerca_de.html">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Tienda_productos.html">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FAQ.html">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Buscar ...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                    data-bs-target="#templatemo_search">
+                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                </a>
+
+                <!-- Icono de Iniciar Sesion-->
+                <a class="nav-icon position-relative text-decoration-none" id="login-link" href="Iniciar_sesión.html">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    <span
+                        class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                </a>
+
+                <!-- Icono de Perfil-->
+                <li class="nav-item dropdown" id="perfil-link" style="display: none;">
+                    <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="Perfil_usuario.html">Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="Carrito_compras.html">Carrito de Compras</a></li>
+                        <li><a id="cerrar" class="dropdown-item">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Diseño de Modal y Barra de Busqueda -->
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Buscar ...">
+                <button type="submit" class="input-group-text bg-success text-light">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- Textos informativos -->
+    <main>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+
+
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para que puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Regístrarse</button>
+                </div>
+            </div>
+
+            <!-- Formulario de Iniciar Sesión y Registro -->
+            <div class="contenedor__login-register">
+                <!-- Iniciar Sesión -->
+                <form action="" class="formulario__login">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" id="login-email" placeholder="Correo Electronico">
+                    <input type="password" id="login-password" placeholder="Contraseña">
+                    <button id="login-submit">Entrar</button>
+                </form>
+
+                <!-- Registrarse -->
+                <form class="formulario__register">
+                    <h2>Regístrarse</h2>
+                    <input type="text" id="username" placeholder="Nombre completo">
+                    <input type="text" id="email" placeholder="Correo Electronico">
+                    <input type="text" id="code" placeholder="Codigo">
+                    <input type="password" id="password" placeholder="Contraseña">
+                    <button id="submit">Regístrarse</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página Copyright -->
+    <div class="content">
+        <br>
+    </div>
+        <div class="footer bg-black">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 BD Gruop Company
+                            | Diseñada por BD Gruop
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <!-- Inicializar y otros funciones de Firebase -->
+    <script type="module">
+        // Importa los módulos necesarios de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import { sendEmailVerification, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        // Configuración de tu aplicación web Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBgbmkxgRJ74qT0l-UM1ZeMw4yY0UY4g6U",
+            authDomain: "sanmarket-d2ffb.firebaseapp.com",
+            projectId: "sanmarket-d2ffb",
+            storageBucket: "sanmarket-d2ffb.appspot.com",
+            messagingSenderId: "173571345194",
+            appId: "1:173571345194:web:4939908ba14df9dbca6c53",
+            measurementId: "G-GPPSMT21NM"
+        };
+
+        // Inicializa Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase(app);
+        const auth = getAuth(app);
+
+        document.getElementById("submit").addEventListener('click', function (e) {
+            e.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+            // Obtén los valores del formulario
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const code = document.getElementById("code").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            // Verificaciones
+            if (!username || !email || !code || !password) {
+                alert("Todos los campos son obligatorios.");
+                return;
+            }
+
+            if (password.length < 8) {
+                alert("La contraseña debe tener al menos 8 caracteres.");
+                return;
+            }
+
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@unmsm\.edu\.pe$/;
+            if (!emailPattern.test(email)) {
+                alert("El correo debe ser su correo Institucional.");
+                return;
+            }
+
+            const codePattern = /^\d{8}$/;
+            if (!codePattern.test(code)) {
+                alert("El código debe ser de estudiante de San Marcos valido (8 cifras).");
+                return;
+            }
+
+            // Crear usuario con Firebase Authentication
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Usuario creado exitosamente
+                    const user = userCredential.user;
+                    const userId = user.uid;
+
+                    // Guarda los datos del usuario en la base de datos usando su UID
+                    set(ref(db, 'user/' + userId), {
+                        username: username,
+                        email: email,
+                        code: code,
+                        password: password // Guardar la contraseña en la base de datos   
+                    }).then(() => {
+                        alert("¡Te registraste correctamente!");
+                        sendEmailVerification(user)
+                            .then(() => {
+                                alert('Se ha enviado un correo de verificación.');
+                                // Limpiar los campos del formulario
+                                document.getElementById("username").value = '';
+                                document.getElementById("email").value = '';
+                                document.getElementById("code").value = '';
+                                document.getElementById("password").value = '';
+                            })
+                            .catch((error) => {
+                                console.error("Error al enviar el correo de verificación: ", error);
+                                alert("Ocurrió un error al enviar el correo de verificación. Por favor, intenta nuevamente más tarde.");
+                            });
+                    }).catch((error) => {
+                        console.error("Error al escribir en la base de datos: ", error);
+                        alert("Ocurrió un error al guardar los datos. Por favor, intenta nuevamente más tarde.");
+                    });
+                })
+                .catch((error) => {
+                    if (error.code === 'auth/email-already-in-use') {
+                        alert("El correo electrónico ya está en uso. Por favor, usa un correo diferente.");
+                    } else {
+                        console.error("Error al crear el usuario: ", error);
+                        alert(`Ocurrió un error al crear el usuario: ${error.message}`);
+                    }
+                });
+        });
+
+
+        document.getElementById("login-submit").addEventListener('click', function (e) {
+            e.preventDefault(); // Previene el comportamiento por defecto del formulario
+
+            // Obtén los valores del formulario
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    alert("Inicio de sesión exitoso!");
+                    window.location.href = "Tienda_productos.html"; // Redirige a la página principal
+                })
+                .catch((error) => {
+                    console.error("Error al iniciar sesión: ", error);
+                    alert("Correo electrónico o contraseña incorrectos.");
+                });
+        });
+    </script>
+
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

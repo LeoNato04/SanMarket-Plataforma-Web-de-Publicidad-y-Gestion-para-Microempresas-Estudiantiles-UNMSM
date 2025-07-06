@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>San Market</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+
+    <!-- Estilos CSS de FAQ.html-->
+    <style>
+        /* Estilos para el menú desplegable */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            padding: .25rem 0rem;
+            background-color: #ffffff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-item {
+            color: #333;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa; 
+            color: none;
+        }
+ 
+        /* Estilos Pie de pagina, siempre en la parte inferior */
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .footer {
+            flex-shrink: 0;
+        }
+
+        /* Estilo personalizado para el texto del acordeón */
+        .accordion-header button {
+            color: #333;
+            background-color: #f8f9fa;
+            box-shadow: none;
+        }
+
+        .accordion-header button.collapsed {
+            color: #A6042D; 
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow: none;
+        }
+
+        .accordion-header button[aria-expanded="true"] {
+        color: #fff; 
+        background-color: #A6042D; 
+        box-shadow: none;
+        border:#333
+    }
+
+        .accordion-body {
+            color: #555;
+            box-shadow: none;
+            border:#333
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Iconos: Redes Sociales -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                        class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                        class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                        class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                        class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Encabezado: barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            San Market
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+            id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Acerca_de.html">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Tienda_productos.html">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FAQ.html">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Buscar ...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                    data-bs-target="#templatemo_search">
+                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                </a>
+
+                <!-- Icono de Iniciar Sesion-->
+                <a class="nav-icon position-relative text-decoration-none" id="login-link" href="Iniciar_sesión.html">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    <span
+                        class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                </a>
+
+                <!-- Icono de Perfil-->
+                <li class="nav-item dropdown" id="perfil-link" style="display: none;">
+                    <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="Perfil_usuario.html">Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="Carrito_compras.html">Carrito de Compras</a></li>
+                        <li><a id="cerrar" class="dropdown-item">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Diseño de Modal y Barra de Busqueda -->
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Buscar ...">
+                <button type="submit" class="input-group-text bg-success text-light">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- Sección de Preguntas Frecuentes (FAQ) -->
+    <section id="faq" class="bg-light py-5">
+        <div class="container">
+            <div class="row text-center py-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Preguntas Frecuentes</h1>
+                    <p>Respuestas a las preguntas más comunes que nuestros usuarios tienen.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- Pregunta 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    ¿Cómo puedo registrarme en San Market?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Para registrarte en San Market, haz clic en el ícono de usuario en la esquina superior derecha y selecciona "Registrarse". Completa el formulario con tu información y sigue las instrucciones enviadas a tu correo electrónico.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    ¿Cómo puedo actualizar la información de mi cuenta?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Para actualizar la información de tu cuenta, inicia sesión y dirígete a tu perfil. Desde allí, puedes modificar tus datos personales y preferencias.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    ¿Cómo puedo convertirme en proveedor en San Market?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Para convertirte en proveedor en San Market, primero necesitas registrarte como usuario. Luego, en tu perfil, encontrarás la opción para aplicar como proveedor. Completa el formulario de solicitud y nuestro equipo revisará tu aplicación.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    ¿Cómo puedo contactar al servicio de atención al cliente?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Puedes contactarnos a través del formulario de contacto en la página "Contacto" o enviando un correo electrónico a contacto.sanmarket@gmail.com.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pregunta 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    ¿Tienen un número de teléfono para atención al cliente?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Actualmente, ofrecemos soporte principalmente a través de correo electrónico y nuestro formulario de contacto para asegurar una respuesta rápida y efectiva.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Agregaremos mas aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Pie de página con Datos Adicionales -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+            <div class="container">
+                <div class="row">
+    
+                    <!-- Datos Adicionales -->
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-success border-bottom pb-3 border-light logo">San Market</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt fa-fw"></i>
+                                Ciudad Universitaria - UNMSM, Av. República de Venezuela 3400, Lima
+                            </li>
+                            <li>
+                                <i class="fa fa-phone fa-fw"></i>
+                                <a class="text-decoration-none" href="tel:972-114-564">Telf: 972-114-564</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <a class="text-decoration-none"
+                                    href="mailto:contacto.sanmarket@gmail.com">contacto.sanmarket@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!-- Productos de Tienda Populares -->
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="Tienda_productos.html">Lujo</a></li>
+                            <li><a class="text-decoration-none" href="Tienda_productos.html">Ropa deportiva</a></li>
+                            <li><a class="text-decoration-none" href="Tienda_productos.html">Zapatos de hombre</a></li>
+                            <li><a class="text-decoration-none" href="Tienda_productos.html">Zapatos de mujer</a></li>
+                            <li><a class="text-decoration-none" href="Tienda_productos.html">Vestidos popular</a></li>
+                            <li><a class="text-decoration-none" href="Tienda_productos.html">Accesorios de Gym</a></li>
+                            <li><a class="text-decoration-none" href="Tienda_productos.html">Zapatillas Deportivas</a></li>
+                        </ul>
+                    </div>
+    
+                    <!-- Paginas de Informacion adicional -->
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Informacion adicional</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="#">Inicio</a></li>
+                            <li><a class="text-decoration-none" href="Acerca_de.html">Acerca de</a></li>
+                            <li><a class="text-decoration-none" href="FAQ.html">Preguntas frecuentes</a></li>
+                            <li><a class="text-decoration-none" href="Contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+    
+                </div>
+    
+                <!-- Redes Sociales -->
+                <div class="row text-light mb-4">
+                    <div class="col-12 mb-3">
+                        <div class="w-100 my-3 border-top border-light"></div>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <ul class="list-inline text-left footer-icons">
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                                        class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank"
+                                    href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
+                                        class="fab fa-twitter fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank"
+                                    href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <!-- Subscribción //No_funcional -->
+                    <div class="col-auto">
+                        <label class="sr-only" for="subscribeEmail">Dirección E-Mail</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control border-light" id="subscribeEmail"
+                                placeholder="Ingresa Email">
+                            <div class="input-group-text btn-success text-light">Subscribete</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+                <!-- Pie de página Copyright -->
+            <div class="content">
+            </div>
+                <div class="footer bg-black">
+                    <div class="container">
+                        <div class="row pt-2">
+                            <div class="col-12">
+                                <p class="text-left text-light">
+                                    Copyright &copy; 2024 BD Gruop Company
+                                    | Diseñada por BD Gruop
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script type="module">
+        // Importa los módulos necesarios de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+        import { sendEmailVerification, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        // JavaScript para el menú desplegable
+        document.addEventListener("DOMContentLoaded", function () {
+            const perfilLi = document.getElementById("perfil-li");
+            const dropdownMenu = document.getElementById("dropdownMenu");
+
+            // Función para actualizar la visibilidad de Carrito
+            const carritoLink = document.getElementById("carrito-link");
+
+
+            perfilLi.addEventListener("mouseover", function () {
+                dropdownMenu.classList.add("show");
+            });
+
+            perfilLi.addEventListener("mouseout", function () {
+                dropdownMenu.classList.remove("show");
+            });
+
+            // Detectar cambios en el estado de autenticación
+            const auth = getAuth();
+            onAuthStateChanged(auth, (user) => {
+                actualizarVisibilidadElementos(user);
+            });
+        });
+    </script>
+
+    <!-- Javascript de Ocultar o mostrar icono de Perfil y otros casos -->
+    <script type="module" src="auth.js"></script>
+
+</body>
+</html>

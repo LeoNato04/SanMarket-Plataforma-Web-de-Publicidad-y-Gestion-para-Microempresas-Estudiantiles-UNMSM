@@ -1,0 +1,442 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <title>Perfil de Proveedor</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/templatemo.css">
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+
+        <style>
+
+        /* Estilos para el menú desplegable */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            padding: .25rem 0rem;
+            background-color: #ffffff;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-item {
+            color: #333;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa; 
+            color: none;
+        }
+ 
+        /* Estilos Pie de pagina, siempre en la parte inferior */
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .footer {
+            flex-shrink: 0;
+        }
+        
+            /* Estilo para la imagen de perfil previa */
+            .preview-image {
+                max-width: 200px;
+                margin: auto;
+            }
+        
+
+            /* Estilos personalizados para otros elementos */
+            .btn-custom-v1 {
+                background-color: #A6042D;
+                color: #ffffff;
+                border-color: #fff;
+            }
+        
+            .btn-custom-v1:hover {
+                background-color: #A6042D;
+                border-color: #000;
+            }
+        
+            .profile-container {
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background-color: #f9f9f9;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+        
+            .profile-heading {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        
+            .profile-details {
+                margin-bottom: 20px;
+            }
+        
+            .profile-details p {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        
+            .btn-edit-profile {
+                margin-right: 10px;
+                color: #fff;
+            }
+        
+            .modal-content {
+                border-radius: 0;
+            }
+        
+            .modal-body form {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        
+            .modal-title {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        
+            @media (max-width: 576px) {
+                .profile-container {
+                    padding: 10px;
+                }
+            }
+        
+            .profile-heading h1 {
+                text-align: center;
+            }
+        
+            .profile-picture {
+                margin-bottom: 20px;
+            }
+        
+            .profile-picture label {
+                display: block;
+                margin-bottom: 10px;
+            }
+        
+            .preview-image {
+                text-align: center;
+                margin-top: 10px;
+            }
+        
+            .preview-image img {
+                max-width: 200px;
+                max-height: 200px;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Iconos: Redes Sociales -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                            class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                            class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                            class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                            class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado: barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                San Market
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Acerca_de.html">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Tienda_productos.html">Tienda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="FAQ.html">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Buscar ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                        data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+
+                    <!-- Icono de Iniciar Sesion-->
+                    <a class="nav-icon position-relative text-decoration-none" id="login-link" href="Iniciar_sesión.html">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+
+                    <!-- Icono de Perfil-->
+                    <li class="nav-item dropdown" id="perfil-link" style="display: none;">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="Perfil_usuario.html">Mi Perfil</a></li>
+                            <li><a class="dropdown-item" href="Carrito_compras.html">Carrito de Compras</a></li>
+                            <li><a id="cerrar" class="dropdown-item">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Diseño de Modal y Barra de Busqueda -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Buscar ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <div class="container profile-container">
+            <div class="profile-heading">
+                <h1>Perfil de Proveedor</h1>
+            </div>
+            <p></p>
+            <div class="text-left">
+                <button id="perfilUsuarioBtn" class="btn btn-custom-v1 btn-edit-profile">Perfil de Usuario</button>
+            </div>
+            <p></p>
+            <div>
+                <p>Nombre de Usuario: <span id="usernameDisplay"></span></p>
+                <p>Correo Electrónico: <span id="emailDisplay"></span></p>
+                <p>Código de Estudiante: <span id="codeDisplay"></span></p>
+                <p>Contraseña: <span id="passwordDisplay">********</span></p>
+                <p>Número de DNI: <span id="dniDisplay"></span></p>
+                <p>Segundo Correo de Contacto: <span id="secondEmailDisplay"></span></p>
+                <p>Descripción: <span id="descriptionDisplay"></span></p>
+                <img id="profileImage" src="#" alt="Foto de Perfil" style="display: none;">
+            </div>
+            <p></p>
+            <div class="text-center">
+                <a href="Inventario_productos.html" class="btn btn-custom-v1 btn-edit-profile">Gestión de Inventario</a>
+            </div>
+            <div class="text-center">ó</div>
+            <div class="text-center">
+        
+                <button id="gestorProductosBtn" class="btn btn-custom-v1 btn-edit-profile">Añadir Nuevo Producto</button>
+            </div>
+        </div>
+
+        <div class="container profile-container">
+            <h2>Historial de Ventas</h2>
+            <ul class="purchase-list">
+                <li>
+                    <div class="purchase-item">
+                        <div class="text-center">Aun no ha se han realizado ventas.</div>
+                        <div class="purchase-date">Fecha:</div>
+                        <div class="purchase-details">
+                            <p>Producto: </p>
+                            <p>Precio: S/. </p>
+                            <!-- Otros detalles de la compra -->
+                        </div>
+                    </div>
+                </li>
+                <!-- Repetir estructura para cada compra -->
+            </ul>
+        </div>
+
+        <div class="content">
+        </div>
+        <div class="footer bg-black">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 BD Gruop Company
+                            | Diseñada por BD Gruop
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery-1.11.0.min.js"></script>
+        <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/templatemo.js"></script>
+        <script src="assets/js/custom.js"></script>
+        
+    <!-- Inicializar y otros procesos de Firebase -->
+    <script type="module">
+        // Importa los módulos necesarios de Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+        // Configuración de web Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBgbmkxgRJ74qT0l-UM1ZeMw4yY0UY4g6U",
+            authDomain: "sanmarket-d2ffb.firebaseapp.com",
+            projectId: "sanmarket-d2ffb",
+            storageBucket: "sanmarket-d2ffb.appspot.com",
+            messagingSenderId: "173571345194",
+            appId: "1:173571345194:web:4939908ba14df9dbca6c53",
+            measurementId: "G-GPPSMT21NM"
+        };
+
+        // Inicializa Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth(app);
+        const storage = getStorage(app); // Inicializa Firebase Storage
+
+        // Función para cargar y mostrar los datos del usuario y proveedor
+        async function mostrarDatosUsuarioProveedor(user) {
+            const userId = user.uid;
+            const userRef = ref(db, `user/${userId}`);
+            const providerRef = ref(db, `providers/${userId}`);
+
+            try {
+                // Obtener datos de usuario
+                const userSnapshot = await get(userRef);
+                if (userSnapshot.exists()) {
+                    const userData = userSnapshot.val();
+                    document.getElementById("usernameDisplay").textContent = userData.username || "No disponible";
+                    document.getElementById("emailDisplay").textContent = userData.email || "No disponible";
+                    document.getElementById("codeDisplay").textContent = userData.code || "No disponible";
+                    document.getElementById("passwordDisplay").textContent = "********";
+
+                    // Actualiza el encabezado del perfil
+                    document.querySelector(".profile-heading h1").textContent = `Bienvenido, ${userData.username || "Usuario"}`;
+            
+                    // Mostrar foto de perfil si existe
+                    if (userData.profileImageUrl) {
+                        document.getElementById("profileImage").src = userData.profileImageUrl;
+                        document.getElementById("profileImage").style.display = "block";
+                    } else {
+                        document.getElementById("profileImage").style.display = "none";
+                    }
+                } else {
+                    console.log("No se encontraron datos de usuario");
+                }
+
+                // Obtener datos de proveedor
+                const providerSnapshot = await get(providerRef);
+                if (providerSnapshot.exists()) {
+                    const providerData = providerSnapshot.val();
+                    document.getElementById("dniDisplay").textContent = providerData.dni || "No disponible";
+                    document.getElementById("secondEmailDisplay").textContent = providerData.secondEmail || "No disponible";
+                    document.getElementById("descriptionDisplay").textContent = providerData.description || "No disponible";
+                } else {
+                    console.log("No se encontraron datos de proveedor");
+                }
+            } catch (error) {
+                console.error("Error al cargar datos: ", error);
+            }
+        }
+
+        // Escuchar cambios en el estado de autenticación
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                mostrarDatosUsuarioProveedor(user);
+            } else {
+                console.log("No hay usuario autenticado");
+            }
+        });
+
+            // Detectar cambios en el estado de autenticación
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    console.log("Usuario activo");
+                    mostrarDatosUsuarioProveedor(user);
+                } else {
+                    console.log("Usuario inactivo");
+                    window.location.href = "log-in.html"; // Redirigir a la página de inicio de sesión si no está autenticado.
+                }
+            });
+
+            // Manejar el clic en el botón de perfil de usuario
+            document.getElementById("perfilUsuarioBtn").addEventListener('click', () => {
+                window.location.href = "Perfil_usuario.html"; // Redirigir a la página de perfil de usuario
+            });
+
+            // Manejar el clic en el botón de gestor de productos
+            document.getElementById("gestorProductosBtn").addEventListener('click', () => {
+                window.location.href = "Gestor_productos.html"; // Redirigir a la página de gestión de productos
+            });
+        </script>
+
+        <!-- Para acceder a perfil -->
+        <script type="module" src="auth.js"></script>
+        </body>
+        </html>

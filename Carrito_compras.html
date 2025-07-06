@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - San Market</title>
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <style>
+        /* Estilos específicos para la página de carrito */
+        .cart-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+        .cart-item img {
+            max-width: 100px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+        .cart-actions {
+            text-align: center;
+        }
+        .cart-total {
+            margin-top: 20px;
+        }
+    </style>
+
+    <style>
+        .btn-custom-v1 {
+            background-color: #A6042D;
+            color: #ffffff;
+            border-color: #fff;
+        }
+
+        /* Estilo para el color de un botón al pasar el puntero */
+        .btn-custom-v1:hover {
+            background-color: #A6042D;
+            /* Color de fondo rojo oscuro al pasar el puntero */
+            border-color: #000;
+            /* Color del borde del botón al pasar el puntero */
+        }
+    </style>
+
+    <style>
+        /* Estilos para el menú desplegable */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            padding: .25rem 0rem;
+            background-color: #ffffff;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+    
+        .dropdown-menu.show {
+            display: block;
+        }
+    </style>
+    <style>
+        /* Estilos Pie de pagina, siempre en la parte inferior */
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1 0 auto;
+        }
+        .footer {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Iconos: Redes Sociales -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i
+                        class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i
+                        class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i
+                        class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i
+                        class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Encabezado: barra de navegación -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            San Market
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+            id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Acerca_de.html">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Tienda_productos.html">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="FAQ.html">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Buscar ...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                    data-bs-target="#templatemo_search">
+                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                </a>
+
+                <!-- Icono de Iniciar Sesion-->
+                <a class="nav-icon position-relative text-decoration-none" id="login-link" href="Iniciar_sesión.html">
+                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                    <span
+                        class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                </a>
+
+                <!-- Icono de Perfil-->
+                <li class="nav-item dropdown" id="perfil-link" style="display: none;">
+                    <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="Perfil_usuario.html">Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="Carrito_compras.html">Carrito de Compras</a></li>
+                        <li><a id="cerrar" class="dropdown-item">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Diseño de Modal y Barra de Busqueda -->
+<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="w-100 pt-1 mb-5 text-right">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="get" class="modal-content modal-body border-0 p-0">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Buscar ...">
+                <button type="submit" class="input-group-text bg-success text-light">
+                    <i class="fa fa-fw fa-search text-white"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <!-- Contenido principal -->
+    <div class="container py-5">
+        <div class="row">
+
+            <div class="col-lg-8">
+                <h1 class="h2 pb-4"><b>Carrito de Compras</b></h1>
+                <div id="cartItemList" class="list-group"></div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Resumen de la compra</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Subtotal
+                                <span class="badge bg-primary rounded-pill" id="subtotalAmount">0.00</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Envío
+                                <span class="badge bg-primary rounded-pill">Gratis</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Total
+                                <span class="badge bg-success rounded-pill" id="totalAmount">0.00</span>
+                            </li>
+                        </ul>
+                        <!--<button class="btn btn-success mt-3 d-block w-100">Pagar ahora</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="content">
+    </div>
+        <div class="footer bg-black">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 BD Gruop Company
+                            | Diseñada por BD Gruop
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+    <script type="module">
+        // Importa Firebase y otros módulos necesarios
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBgbmkxgRJ74qT0l-UM1ZeMw4yY0UY4g6U",
+            authDomain: "sanmarket-d2ffb.firebaseapp.com",
+            projectId: "sanmarket-d2ffb",
+            storageBucket: "sanmarket-d2ffb.appspot.com",
+            messagingSenderId: "173571345194",
+            appId: "1:173571345194:web:4939908ba14df9dbca6c53",
+            measurementId: "G-GPPSMT21NM"
+        };
+
+        // Inicialización de la app Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Variables para el carrito
+        let cartItems = [];
+        let user = null;
+
+        // Función para mostrar los productos en el carrito
+        function displayCartItems() {
+            const cartItemList = document.getElementById("cartItemList");
+            cartItemList.innerHTML = "";
+
+            cartItems.forEach(item => {
+                const cartItem = `
+                    <div class="row cart-item">
+                        <div class="col-md-3">
+                            <img src="${item.imageUrl}" alt="${item.name}">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>${item.name}</h5>
+                            <p>S/. ${item.price}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-custom-v1 btn-remove" data-id="${item.id}">Eliminar</button>
+                        </div>
+                    </div>
+                `;
+                cartItemList.insertAdjacentHTML("beforeend", cartItem);
+            });
+
+            // Actualizar montos totales
+            updateCartSummary();
+
+            // Agregar eventos de click a los botones de eliminar
+            const removeButtons = document.getElementsByClassName("btn-remove");
+            Array.from(removeButtons).forEach(button => {
+                button.addEventListener("click", function() {
+                    const productId = this.getAttribute("data-id");
+                    removeFromCart(productId);
+                });
+            });
+        }
+
+        // Función para eliminar un producto del carrito
+        function removeFromCart(productId) {
+            // Filtrar el array de cartItems para quitar el producto con el id dado
+            cartItems = cartItems.filter(item => item.id !== productId);
+
+            // Actualizar la interfaz después de eliminar
+            displayCartItems();
+
+            // Actualizar la base de datos para eliminar el producto del carrito del usuario
+            if (user) {
+                const cartItemRef = ref(db, `carts/${user.uid}/${productId}`);
+                remove(cartItemRef)
+                    .then(() => {
+                        console.log("Producto eliminado del carrito en la base de datos");
+                    })
+                    .catch(error => {
+                        console.error("Error al eliminar producto del carrito:", error);
+                    });
+            }
+        }
+
+        // Función para actualizar el resumen del carrito
+        function updateCartSummary() {
+            const subtotalAmount = document.getElementById("subtotalAmount");
+            const totalAmount = document.getElementById("totalAmount");
+
+            // Calcular subtotal y total
+            let subtotal = 0;
+            cartItems.forEach(item => {
+                subtotal += parseFloat(item.price); // Asegúrate de parsear el precio a float
+            });
+
+            subtotalAmount.textContent = `S/. ${subtotal.toFixed(2)}`; // Asegúrate de que subtotal sea tratado como número
+            totalAmount.textContent = `S/. ${subtotal.toFixed(2)}`; // Asegúrate de que total sea tratado como número
+        }
+
+        // Detectar cambios en el estado de autenticación
+        const auth = getAuth();
+        onAuthStateChanged(auth, (currentUser) => {
+            user = currentUser;
+            if (user) {
+                const cartRef = ref(db, `carts/${user.uid}`);
+                // Escuchar cambios en los productos del carrito
+                onValue(cartRef, (snapshot) => {
+                    cartItems = []; // Limpiar array de productos del carrito
+
+                    snapshot.forEach((productSnapshot) => {
+                        const productData = productSnapshot.val();
+                        // Agregar producto al array de productos del carrito
+                        cartItems.push({
+                            id: productSnapshot.key,
+                            name: productData.name,
+                            price: productData.price,
+                            imageUrl: productData.imageUrl
+                        });
+                    });
+
+                    // Mostrar los productos en el carrito
+                    displayCartItems();
+                });
+            } else {
+                cartItems = []; // Si no hay usuario autenticado, vaciar el carrito
+                displayCartItems(); // Mostrar carrito vacío
+            }
+        });
+    </script>
+
+    <!-- Para acceder a perfil y algunos otros iconos -->
+    <script type="module" src="auth.js"></script>
+
+</body>
+</html>
